@@ -3,7 +3,7 @@ extends ../base
 block content 
     div.edit-profile__div
         if user.avatarUrl
-            img(src="/"+user.avatarUrl).profile-img
+            img(src=user.avatarUrl,crossorigin).profile-img
         else 
             span.non-image 😀
         form(method="POST", enctype="multipart/form-data").edit-profile__form
