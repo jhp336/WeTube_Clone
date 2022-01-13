@@ -9,7 +9,7 @@ const S3 = new aws.S3({
     }
 });
 const multerUpload = multerS3({
-    s3:s3,
+    s3:S3,
     bucket:"wetube-jhp"
 });
 
