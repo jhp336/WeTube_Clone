@@ -17,7 +17,7 @@ header
                     a(href=`/users/${user._id}`) 
                         if user.avatarUrl 
                             if user.socialOnly
-                                img(src=user.avatarUrl).header__avatar
+                                img(src=user.avatarUrl, crossorigin).header__avatar
                             else
                                 img(src="/" + user.avatarUrl).header__avatar
                         else 
