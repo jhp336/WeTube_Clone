@@ -1,0 +1,34 @@
+
+.upload__container {
+    width: 100%;
+    .upload__video {
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      video {
+        width:1024px;
+        height:576px;
+        margin-bottom: 10px;
+      }
+      button{
+        border-radius: 5px;
+        padding: 8px 16px;
+        background-color: white;
+        color: rgba($color: $red, $alpha: 1);
+        text-align: center;
+        cursor: pointer;
+        border: none;
+        margin: 0px 3px;
+        &:disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+      }
+    }
+    .upload__label{
+    font-size: 14px;
+    margin: 10px 0px;
+    display: block;
+    }
+}

@@ -1,0 +1,21 @@
+extends ../base.pug
+
+block content
+    div.upload__container
+        div.upload__video
+            video#preview
+            div
+                button#recordBtn Use Recording
+                button#againBtn Record Again
+        form(method="POST", enctype="multipart/form-data")
+            label(for="video").upload__label Video File
+            input(type="file",id="video",name="video",accept="video/*",required)
+            label(for="thumb").upload__label Thumbnail File
+            input(type="file",id="thumb",name="thumb",accept="image/*",required)
+            input(name="title",placeholder="Title",required, maxlength=60)
+            input(name="description",placeholder="Description",required)
+            input(name="hashtags",placeholder="Hashtags, Separated by Comma",required)
+            input(type="submit",value="Upload Video")
+block scripts   
+    script(src="/static/js/recorder.js")
+    

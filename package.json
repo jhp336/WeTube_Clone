@@ -1,0 +1,57 @@
+{
+  "name": "youtubeclone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:server": "nodemon",
+    "dev:assets": "webpack --mode=development -w",
+    "build": "npm run build:server && npm run build:assets",
+    "build:server": "babel src -d build",
+    "build:assets": "webpack --mode=production",
+    "start": "node build/init.js"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jhp336/WeTube_Clone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jhp336/WeTube_Clone/issues"
+  },
+  "homepage": "https://github.com/jhp336/WeTube_Clone#readme",
+  "dependencies": {
+    "@ffmpeg/core": "^0.10.0",
+    "@ffmpeg/ffmpeg": "^0.10.1",
+    "bcrypt": "^5.0.1",
+    "connect-mongo": "^4.6.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.17.2",
+    "mongoose": "^6.0.6",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.3",
+    "node-fetch": "^2.6.1",
+    "pug": "^3.0.2",
+    "regenerator-runtime": "^0.13.9"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.16.8",
+    "@babel/core": "^7.15.5",
+    "@babel/node": "^7.15.4",
+    "@babel/preset-env": "^7.15.4",
+    "babel-loader": "^8.2.3",
+    "css-loader": "^6.5.1",
+    "mini-css-extract-plugin": "^2.4.5",
+    "nodemon": "^2.0.12",
+    "sass": "^1.45.2",
+    "sass-loader": "^12.4.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1"
+  }
+}

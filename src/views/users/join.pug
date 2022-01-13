@@ -1,0 +1,17 @@
+extends ../base.pug
+
+block content 
+    form(method="POST")
+        input(name="name",placeholder="Name",required)
+        input(name="email", type="email", placeholder="E-mail",required, maxlength=60)
+        input(name="username",placeholder="Username",required)
+        input(name="password", type="password", placeholder="Password",required)
+        input(name="password2", type="password", placeholder="Confirm Password",required)
+        input(name="location",placeholder="Location")
+
+        input(type="submit",value="Join")
+
+        include ../partials/social-login
+    div.auth-switch
+        span Already have an account? 
+        a(href="/login") Log in Now &rarr;

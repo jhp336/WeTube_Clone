@@ -1,0 +1,16 @@
+extends ../base.pug
+include ../mixins/video.pug
+
+block content 
+    div.profile__data
+        if user_see.avatarUrl
+            img(src="/" + user_see.avatarUrl).avatar
+        else 
+            span.non-image 😀
+        h3=user_see.name
+    div.video-grid
+        each video in user_see.videos 
+            +video(video)
+        else 
+            span.empty__message No Videos Found
+    

@@ -1,0 +1,57 @@
+extends ../base.pug
+
+block content
+    div#videoContainer(data-id = video._id)
+        video(src=`/${video.fileUrl}`)
+        div#videoControls.videoControls
+            div.videoControls__play
+                span#play
+                    i.fas.fa-play
+            div.videoControls__volume
+                span#mute 
+                    i.fas.fa-volume-up
+                input(type="range", step="0.1", value=0.5, min="0", max="1")#volume
+            input(type="range", step="1", value=0, min="0")#timeline.videoControls__timeline
+            div.videoControls__time
+                span#currentTime 00:00:00
+                span  / 
+                span#totalTime 00:00:00
+            div 
+                span#fullScreen.videoControls__fullBtn
+                    i.fas.fa-expand
+    
+    div
+        p=video.description
+        small=video.createdAt
+    div
+        small Upload by  
+            a(href=`/users/${video.owner._id}`) #{video.owner.name}
+    div 
+        span #{video.meta.views} 회
+    if String(video.owner._id) === String(user._id)
+        a(href=`${video.id}/edit`) Edit Video &rarr;
+        br
+        a(href=`${video.id}/delete`) Delete Video &rarr;
+    
+    div.video__add-comments
+        form.video__add-comment-form#commentForm
+            if(loggedIn)
+                textarea(cols="30", rows="10", placeholder="댓글을 남겨주세요.")
+            else 
+                textarea(cols="30", rows="10", placeholder="로그인 후 댓글을 남겨주세요.").not-login
+            button#commentBtn.social__btn 확인
+    
+    div.video__comments
+        ul 
+            each comment in video.comments.reverse()
+                li.video__comment(data-id=comment._id)
+                    i.fas.fa-comment
+                    span=` ${comment.text}`
+                    if String(comment.owner) === String(user._id)
+                        span.comment__delete ❌
+            else 
+                span.empty__message No Comment yet.
+
+block scripts
+    script(src="/static/js/videoPlayer.js")
+    script(src="/static/js/commentSection.js")
