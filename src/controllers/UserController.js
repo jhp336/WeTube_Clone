@@ -195,7 +195,7 @@ export const postEdit = async function(req,res){
         }
     }
     const updatedUser = await User.findByIdAndUpdate(_id, {
-        avatarUrl: file ? file.path : avatarUrl ,
+        avatarUrl: file ? file.location : avatarUrl ,        
         email, username, name, location
     }, 
     {new: true});
