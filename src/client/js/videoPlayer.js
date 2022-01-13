@@ -159,7 +159,8 @@ const handleEnded = function(){
 playBtn.addEventListener("click", handlePlay);
 muteBtn.addEventListener("click", handleMute);
 volumeRange.addEventListener("input", handleVolumeChange);
-video.addEventListener("loadedmetadata", handleLoadedMetaData);
+video.addEventListener("canplay", handleLoadedMetaData);
+handleLoadedMetaData();
 video.addEventListener("timeupdate", handleTimeUpdate);
 video.addEventListener("click", handlePlay);
 video.addEventListener("dblclick", handleDblclick);
