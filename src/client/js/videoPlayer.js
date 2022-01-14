@@ -71,6 +71,7 @@ const handleLoadedMetaData = function(event){
     }
     else{
         video.currentTime = Number.MAX_SAFE_INTEGER;
+        video.play();
     }
 };
 
