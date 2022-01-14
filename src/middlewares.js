@@ -10,7 +10,8 @@ const S3 = new aws.S3({
 });
 const multerUpload = multerS3({
     s3:S3,
-    bucket:"wetube-jhp"
+    bucket:"wetube-jhp",
+    acl:"public-read"
 });
 
 export const localsMiddleware = function(req, res, next){

@@ -4,7 +4,7 @@ include ../mixins/video.pug
 block content 
     div.profile__data
         if user_see.avatarUrl
-            img(src=user_see.avatarUrl,crossorigin).avatar
+            img(src=user_see.avatarUrl).avatar
         else 
             span.non-image 😀
         h3=user_see.name

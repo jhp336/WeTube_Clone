@@ -50,6 +50,8 @@ export const postEdit = async function(req,res){
     res.redirect(`/video/${id}`)
 };
 export const getUpload = function(req,res){
+    res.header("Cross-Origin-Embedder-Policy", "require-corp");
+    res.header("Cross-Origin-Opener-Policy", "same-origin");
     res.render("videos/upload", { pageTitle: 'Upload Video'});
 };
 export const postUpload = async function(req,res){
