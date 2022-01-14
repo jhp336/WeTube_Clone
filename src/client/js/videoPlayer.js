@@ -159,7 +159,8 @@ const handleEnded = function(){
     });
 };
 
-const handleClickPlay = function(){
+const handleClickPlay = function(event){
+    event.preventDefault();
     if(videoControls.classList.contains("showing"))
     handlePlay();
     else
