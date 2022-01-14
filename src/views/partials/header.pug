@@ -16,7 +16,7 @@ header
                 li 
                     a(href=`/users/${user._id}`) 
                         if(user.avatarUrl)
-                            img(src=user.avatarUrl).header__avatar
+                            img(src=isHeroku?user.avatarUrl:"/"+user.avatarUrl).header__avatar
                         else 
                             span 😀
             else
