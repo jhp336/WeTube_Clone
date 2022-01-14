@@ -71,7 +71,8 @@ const handleLoadedMetaData = function(event){
     }
     else{
         video.currentTime = Number.MAX_SAFE_INTEGER;
-        video.play();
+        console.log(video.currentTime);
+        video.currentTime = 0;
     }
 };
 
@@ -166,8 +167,10 @@ const handleEnded = function(){
 playBtn.addEventListener("click", handlePlay);
 muteBtn.addEventListener("click", handleMute);
 volumeRange.addEventListener("input", handleVolumeChange);
+if(video.readyState >= 2)
 handleLoadedMetaData();
-video.addEventListener("loadedmetadata", handleLoadedMetaData);
+else
+video.addEventListener("canplay", handleLoadedMetaData);
 video.addEventListener("timeupdate", handleTimeUpdate);
 video.addEventListener("click", handlePlay);
 video.addEventListener("dblclick", handleDblclick);
