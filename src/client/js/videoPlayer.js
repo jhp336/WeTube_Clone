@@ -162,6 +162,8 @@ const handleEnded = function(){
 const handleClickPlay = function(){
     if(videoControls.classList.contains("showing"))
     handlePlay();
+    else
+    handleMouseMove();
 }
 
 playBtn.addEventListener("click", handlePlay);
