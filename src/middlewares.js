@@ -10,9 +10,15 @@ const S3 = new aws.S3({
         secretAccessKey:process.env.AWS_SECRET
     }
 });
-const multerUpload = multerS3({
+const s3ImgageUpload = multerS3({
     s3:S3,
-    bucket:"wetube-jhp",
+    bucket:"wetube-jhp/images",
+    acl:"public-read"
+});
+
+const s3VideoUpload = multerS3({
+    s3:S3,
+    bucket:"wetube-jhp/videos",
     acl:"public-read"
 });
 
@@ -49,12 +55,12 @@ export const avatarUpload = multer({
     limits: {
         fileSize: 3000000
     },
-    storage: isHeroku ? multerUpload : undefined
+    storage: isHeroku ? s3ImgageUpload : undefined
 })
 export const videoUpload = multer({
     dest:"uploads/videos/", 
     limits: {
         fileSize: 10000000
     },
-    storage: isHeroku ? multerUpload : undefined
+    storage: isHeroku ? s3VideoUpload : undefined
 })
