@@ -162,10 +162,7 @@ const handleEnded = function(){
 playBtn.addEventListener("click", handlePlay);
 muteBtn.addEventListener("click", handleMute);
 volumeRange.addEventListener("input", handleVolumeChange);
-if(video.readyState >=2)
-handleLoadedMetaData();
-else
-video.addEventListener("canplaythrough", handleLoadedMetaData);
+video.addEventListener("timeupdate", handleLoadedMetaData);
 video.addEventListener("timeupdate", handleTimeUpdate);
 video.addEventListener("click", handlePlay);
 video.addEventListener("dblclick", handleDblclick);
