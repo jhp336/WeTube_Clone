@@ -165,7 +165,7 @@ volumeRange.addEventListener("input", handleVolumeChange);
 if(video.readyState >=2)
 handleLoadedMetaData();
 else
-video.addEventListener("loadedmetadata", handleLoadedMetaData);
+video.addEventListener("canplaythrough", handleLoadedMetaData);
 video.addEventListener("timeupdate", handleTimeUpdate);
 video.addEventListener("click", handlePlay);
 video.addEventListener("dblclick", handleDblclick);
