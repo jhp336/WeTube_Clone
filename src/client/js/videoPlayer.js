@@ -159,13 +159,18 @@ const handleEnded = function(){
     });
 };
 
+const handleClickPlay = function(){
+    if(videoControls.classList.contains("showing"))
+    handlePlay();
+}
+
 playBtn.addEventListener("click", handlePlay);
 muteBtn.addEventListener("click", handleMute);
 volumeRange.addEventListener("input", handleVolumeChange);
 handleLoadedMetaData();
 video.addEventListener("canplay", handleLoadedMetaData);
 video.addEventListener("timeupdate", handleTimeUpdate);
-video.addEventListener("click", handlePlay);
+video.addEventListener("click", handleClickPlay);
 video.addEventListener("dblclick", handleDblclick);
 video.addEventListener("ended", handleEnded);
 timeline.addEventListener("input", handleTimelineChange);
