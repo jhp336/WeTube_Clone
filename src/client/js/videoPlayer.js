@@ -63,7 +63,8 @@ const formatTime = function(seconds){
     return new Date(seconds * 1000).toISOString().substring(11, 19);
 };
 
-const handleLoadedMetaData = function(){
+const handleLoadedMetaData = function(event){
+    console.log(event);
     if(!isNaN(video.duration)){
         totalTime.innerText = formatTime(Math.floor(video.duration));
         timeline.max = Math.floor(video.duration);
