@@ -65,7 +65,7 @@ const formatTime = function(seconds){
 
 const handleLoadedMetaData = function(event){
     console.log(event, video.duration);
-    if(!isNaN(video.duration)){
+    if(isFinite(video.duration)){
         totalTime.innerText = formatTime(Math.floor(video.duration));
         timeline.max = Math.floor(video.duration);
     }
