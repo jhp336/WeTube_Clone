@@ -175,6 +175,7 @@ video.addEventListener("timeupdate", handleTimeUpdate);
 video.addEventListener("click", handleClickPlay);
 video.addEventListener("dblclick", handleDblclick);
 video.addEventListener("ended", handleEnded);
+video.addEventListener("touchend",handleClickPlay);
 timeline.addEventListener("input", handleTimelineChange);
 fullScreenBtn.addEventListener("click", handleFullScreenBtn);
 videoContainer.addEventListener("fullscreenchange", handleFullScreen);
