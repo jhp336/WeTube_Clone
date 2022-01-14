@@ -170,6 +170,7 @@ export const postEdit = async function(req,res){
     const { _id, avatarUrl } = req.session.user;
     const { email, username, name, location } = req.body;
     const file = req.file;
+    console.log(file);
     if(username != req.session.user.username){
         const usernameExists = await User.exists( { username } );
         if(usernameExists){
@@ -194,8 +195,9 @@ export const postEdit = async function(req,res){
             }); 
         }
     }
+    const isHeroku = process.env.NODE_ENV === "production";
     const updatedUser = await User.findByIdAndUpdate(_id, {
-        avatarUrl: file ? file.location : avatarUrl ,        
+        avatarUrl: file ? (isHeroku ? file.location : file.path) : avatarUrl ,        
         email, username, name, location
     }, 
     {new: true});
